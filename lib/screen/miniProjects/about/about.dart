@@ -42,6 +42,8 @@ class _AboutMeState extends State<AboutMe> {
                 const Center(
                   child: CircleAvatar(
                     radius: 50,
+                    backgroundImage: AssetImage("assets/images/my_photo.png"),
+                    backgroundColor: Color.fromARGB(255, 157, 149, 149),
                   ),
                 ),
                 Container(
@@ -49,7 +51,7 @@ class _AboutMeState extends State<AboutMe> {
                   padding:
                       const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
                   child: Text(
-                    "Hi, I am Deepak Bushra khan",
+                    "Hi, I am Bushra khan",
                     style: GoogleFonts.openSans(
                         fontSize: 20, fontWeight: FontWeight.bold),
                   ),

@@ -1,8 +1,11 @@
 import 'package:awesome_portfolio/models/app_model.dart';
 import 'package:awesome_portfolio/models/color_model.dart';
 import 'package:awesome_portfolio/models/device_model.dart';
+import 'package:awesome_portfolio/models/project_model.dart';
+import 'package:awesome_portfolio/screen/miniProjects/contact/contact.dart';
 import 'package:awesome_portfolio/screen/miniProjects/education/education.dart';
 import 'package:awesome_portfolio/screen/miniProjects/experience/experience.dart';
+import 'package:awesome_portfolio/screen/miniProjects/projects/projects.dart';
 import 'package:device_frame/device_frame.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -92,13 +95,35 @@ List<AppModel> apps = [
   AppModel(
       title: "About",
       assetPath: "assets/icons/about.png",
-      color: Colors.white,
+      color: Colors.grey,
       screen: const AboutMe()),
+  AppModel(
+    title: "Education",
+    color: Colors.grey,
+    assetPath: "assets/icons/education.png",
+    screen: const Education(),
+  ),
   AppModel(
       title: "Skills",
       assetPath: "assets/icons/skills.png",
-      color: Colors.white,
+      color: Colors.grey,
       screen: const Skills()),
+  AppModel(
+      title: "Projects",
+      color: Colors.grey,
+      assetPath: "assets/icons/projects.png",
+      screen: const Projects()),
+  AppModel(
+    title: "Resume",
+    assetPath: "assets/icons/resume.png",
+    color: Colors.grey,
+    link: resumeLink,
+  ),
+  AppModel(
+      title: "Experience",
+      color: Colors.grey,
+      assetPath: "assets/icons/experience.png",
+      screen: const Experience()),
   AppModel(
     title: "LinkedIn",
     assetPath: "assets/icons/linkedin.png",
@@ -106,28 +131,16 @@ List<AppModel> apps = [
     link: linkedIn,
   ),
   AppModel(
-      title: "Experience",
-      color: Colors.white,
-      icon: FontAwesomeIcons.idBadge,
-      screen: const Experience()),
-  AppModel(
-    title: "Education",
-    color: Colors.white,
-    icon: FontAwesomeIcons.edge,
-    screen: const Education(),
-  ),
-  AppModel(
     title: "Github",
     assetPath: "assets/icons/github.png",
-    color: Colors.white,
+    color: Colors.grey,
     link: github,
   ),
   AppModel(
-    title: "Play Store",
-    assetPath: "assets/icons/playstore.svg",
-    color: Colors.white,
-    link: playApps,
-  ),
+      title: "Contact",
+      assetPath: "assets/icons/contact.png",
+      color: Colors.grey,
+      screen: const ContactPage()),
 ];
 
 final List<JobExperience> education = [
@@ -174,19 +187,73 @@ final List<JobExperience> jobExperiences = [
   // Add more job experiences here...
 ];
 
-const String youtubeChannel = "https://www.youtube.com/@highcoder";
-const String linkedIn = "https://www.linkedin.com/in/high-coder/";
+List<ProjectExperience> projectList = [
+  ProjectExperience(
+    title: 'Cooig (Startup) | Flutter, Firebase',
+    bulletPoints: [
+      'Contributing as a founding team member in the design and development of a college-specific social media application using Flutter.',
+      'Developed key features including Sell/Rent, Lost & Found, Noticeboard, Profile Page, and Academic Section.',
+      'Collaborating with a team to ensure the application meets the needs of the college community.',
+    ],
+    technologies: 'Flutter, Firebase',
+    projectLink:
+        'https://drive.google.com/drive/folders/1jirF40swqdENVyWvGIHZ0Cer_0GMrklP', // Add actual link
+    startDate: 'Present',
+    endDate: '',
+    color: Colors.blue, // You can change the color as needed
+  ),
+  ProjectExperience(
+    title: 'Mom_Me App | Flutter, Firebase',
+    bulletPoints: [
+      'Developing an app for the adoption of children, allowing orphans to find loving and caring parents.',
+      'Created an easy and streamlined process for prospective parents to adopt children and provide a safe home.',
+      'Integrated features like profile creation, child matching, and communication tools for prospective parents and child care institutions.',
+      'Focused on security, privacy, and creating a transparent adoption process.',
+    ],
+    technologies: 'Flutter, Firebase',
+    projectLink: 'https://github.com/bushra931/Mom_Me_app', // Add actual link
+    startDate: 'Jan 2025', // Replace with actual date
+    endDate: 'present', // Replace with actual date
+    color: Colors.pink, // You can change the color as needed
+  ),
+  ProjectExperience(
+    title: 'MammoScope | Machine learning Model',
+    bulletPoints: [
+      'Developed a breast cancer prediction model using Python and Scikit-learn.',
+      'Achieved 97.37% accuracy in predicting breast cancer.',
+      'The model leverages machine learning algorithms for early detection and supports clinical decision-making.',
+    ],
+    technologies: 'Python, Scikit-learn',
+    projectLink:
+        'https://github.com/bushra931/Breast_cancer_prediction', // Add actual link
+    startDate: 'Dec 2024', // Replace with actual date
+    endDate: '', // Replace with actual date
+    color: Colors.orange, // You can change the color as needed
+  ),
+  ProjectExperience(
+    title: 'FacultyNotes-IGDTUW | HTML, CSS',
+    bulletPoints: [
+      'Developed a basic website for IGDTUW to organize and display faculty notes by name.',
+      'Ensured easy access to exam-related materials and optimized academic content storage.',
+      'Improved accessibility and usability for students to quickly find notes.',
+    ],
+    technologies: 'HTML, CSS',
+    projectLink:
+        'https://bushra931.github.io/FacultyNotesIgdtuw/', // Add actual link
+    startDate: 'Present',
+    endDate: '',
+    color: Colors.green, // You can change the color as needed
+  ),
+];
+
+const String linkedIn = "https://www.linkedin.com/in/bushra-khan-a9ba06287";
 const String github = "https://github.com/bushra931";
-const String twitter = "https://twitter.com/highcoder__";
-const String topMate = "https://topmate.io/highcoder";
+
 const String resumeLink =
-    "https://drive.google.com/file/d/1LO3Km6fFkJVW92MNXRLSYl--E9YlTHJd/view";
+    "https://drive.google.com/drive/folders/1jfYIr9kUkwkBa1I8a-4_QzC0AVOC4tVY";
 const String email = "deepakmittal941@gmail.com";
 String introduction =
     "Hello! I am a second-year engineering student specializing in Computer Science with a focus on Artificial Intelligence. Passionate about innovation, I enjoy exploring new ideas and designing impactful, user-friendly products.\n\nI have hands-on experience in app development using Flutter and am currently deepening my knowledge to master its advanced features. My skills also include front-end and back-end development, Firebase integration, and UI/UX design, enabling me to build comprehensive solutions.\n\nAs the Secretary of Zenovate, a startup-focused society, and the organizer of Taarangana, our college’s cultural event, I have honed my leadership and event management skills.\n\nI am dedicated to continuous learning and combining technical expertise with creativity to drive meaningful innovation.";
-
-const String playApps =
-    "https://play.google.com/store/apps/developer?id=AppyMonk";
 
 List<SkillsModel> skills = [
   SkillsModel(skillName: "Flutter", colorS: Colors.blue, iconPath: "random"),

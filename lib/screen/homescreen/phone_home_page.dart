@@ -17,7 +17,31 @@ class PhoneHomeScreen extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.only(top: 70, left: 20, right: 20),
       child: Column(
+        mainAxisAlignment:
+            MainAxisAlignment.start, // Ensures the content starts at the top
         children: [
+          Center(
+            child: Container(
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.5), // Shadow color
+                    spreadRadius: 3, // Makes the shadow expand
+                    blurRadius: 15, // Adds blur to the shadow for a softer look
+                    offset: Offset(0, 4), // Position of the shadow (downward)
+                  ),
+                ],
+              ),
+              child: CircleAvatar(
+                radius: 90,
+                backgroundColor: Colors.black
+                    .withOpacity(0.3), // Makes the background transparent
+                backgroundImage: const AssetImage("assets/images/my_photo.png"),
+              ),
+            ),
+          ),
+          const SizedBox(height: 20),
           Wrap(
             crossAxisAlignment: WrapCrossAlignment.center,
             alignment: WrapAlignment.start,
@@ -47,13 +71,13 @@ class PhoneHomeScreen extends StatelessWidget {
                                     titlee: apps[index].title);
                               }
                             },
-                            width: 45,
-                            height: 45,
+                            width: 70,
+                            height: 70,
                             asset: apps[index].assetPath != null
                                 ? ButtonAsset(apps[index].assetPath!,
-                                    width: 25, height: 25)
+                                    width: 60, height: 60)
                                 : null,
-                            backgroundColor: apps[index].color,
+                            backgroundColor: Colors.grey.withOpacity(0.6),
                             child: apps[index].assetPath == null
                                 ? Center(
                                     child: Icon(
@@ -71,10 +95,10 @@ class PhoneHomeScreen extends StatelessWidget {
                                 apps[index].title,
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 1,
-                                style: GoogleFonts.openSans(
+                                style: GoogleFonts.exo(
                                     fontSize: 11,
                                     color: Colors.white,
-                                    fontWeight: FontWeight.w400),
+                                    fontWeight: FontWeight.w600),
                               ),
                             ),
                           )
